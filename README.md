@@ -1,4 +1,4 @@
-🌟 Project Overview
+**🌟 Project Overview**
 
 Resume Role Analyzer is a web-based application that automatically analyzes resumes (PDF/DOCX) and matches candidate skills to specific job roles using Deep Learning (SentenceTransformers) and cosine similarity.
 
@@ -33,7 +33,8 @@ source venv/bin/activate
 3.Install dependencies:
 python -m pip install -r requirements.txt
 
-4. Future Improvements
+
+**4. Future Improvements**
 
 Support multi-language resumes.
 
