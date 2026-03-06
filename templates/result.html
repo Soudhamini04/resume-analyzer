@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Resume Analysis Result</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        h1, h2, h3 { color: #2c3e50; }
-        hr { margin: 20px 0; }
-        ul { list-style-type: square; margin-left: 20px; }
-        button { padding: 10px; background-color: #2980b9; color: white; border: none; cursor: pointer; }
-        button:hover { background-color: #3498db; }
-    </style>
+<title>Analysis Result</title>
 </head>
+
 <body>
-    <h1>Resume Analysis Result</h1>
 
-    <h2>Top 3 Recommended Roles</h2>
-    {% for role_info in top_roles %}
-        <h3>{{ role_info.role }} - ATS Score: {{ role_info.score }}%</h3>
-        {% if role_info.matched %}
-        <strong>Matched Skills:</strong>
-        <ul>
-            {% for skill in role_info.matched %}
-                <li>{{ skill }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% if role_info.missing %}
-        <strong>Missing Skills:</strong>
-        <ul>
-            {% for skill in role_info.missing %}
-                <li>{{ skill }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        <hr>
-    {% endfor %}
+<h1>Resume Analysis Result</h1>
 
-    <form method="POST" action="/download">
-        <input type="hidden" name="top_roles" value='{{ top_roles|tojson }}'>
-        <button type="submit">Download PDF Report</button>
-    </form>
+<h2>Selected Role: {{role}}</h2>
 
-    <br>
-    <a href="/">⬅ Back to Upload</a>
+<h2>ATS Score: {{score}}%</h2>
+
+<h3>Missing Skills</h3>
+
+<ul>
+
+{% for skill in missing %}
+
+<li>{{skill}}</li>
+
+{% endfor %}
+
+</ul>
+
+<h3>Suggestions to Improve Resume</h3>
+
+<ul>
+
+{% for s in suggestions %}
+
+<li>{{s}}</li>
+
+{% endfor %}
+
+</ul>
+
+<br>
+
+<a href="/">Analyze Another Resume</a>
+
 </body>
+
 </html>
